@@ -2,7 +2,7 @@ pipeline {
   environment {
     registry = "devopsmeet2019/wp-project"
     registryCredential = 'DockerLogin'
-    dockerImage = 'v1'
+    dockerImage = ''
   }
   agent any
   stages {
