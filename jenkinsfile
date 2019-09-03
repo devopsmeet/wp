@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "devopsmeet2019/wp-project"
-    registryCredential = 'devopsmeet2019'
+    registryCredential = 'DockerLogin'
     dockerImage = ''
   }
   agent any
@@ -27,10 +27,13 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
+    stage('Deploy latest image on container') {
       steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-  }
+        script {
+        docker.image('$registry:$BUILD_NUMBER').withRun('-p 9090:80') {c ->
+          }
+       }
+    }    
+  }   
+  } 
 }
