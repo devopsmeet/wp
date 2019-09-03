@@ -36,4 +36,8 @@ pipeline {
     }    
   }   
   } 
+<<<<<<< HEAD:jenkinsfile.txt
 }
+=======
+}
+>>>>>>> origin/master:jenkinsfile
