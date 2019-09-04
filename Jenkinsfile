@@ -34,6 +34,7 @@ pipeline {
         sh "docker stop wp-project"
         sh "docker rm wp-project"
         sh "docker run -d --name wp-project -p 9090:80 devopsmeet2019/wp-project:${BUILD_NUMBER}"
+        sh "docker images --no-trunc -aqf "devopsmeet2019/wp-project=true" | xargs docker rmi
        }
     }    
   }   
